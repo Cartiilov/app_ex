@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Data saving</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="/">Family Tree</a></h1>
+		</header>
+		<main>
+			<section>
+				<a href="/"><button>Refresh</button></a>
+			</section>
+			<section>
+				<h2>Add a person</h2>
+				<form action="/click" method="POST">
+					<div class="input-form">
+						<label for="name">Person's name</label>
+						<textarea name="name" id="name" rows="1"></textarea><br>
+						<% checkPResp.forEach(val => { %>
+							<p><%= val%>
+						<% }); %>
+						<p id="apControl"></p>
+					</div>
+					<button id="addPerson">Add</button>
+				</form>
+			</section>
+			<section>
+				<h2>Create relationship</h2>
+				<form action="/relationship" method="POST">
+					<div>
+						<table>
+							<tr>
+								<th>
+									<select name="person1" id="person1">
+										<% neo4jData.forEach(name => { %>
+											<option value="<%=name %>""><%= name %></option>
+										<% }); %>
+									</select>
+								</th>
+								<th>is the parent of </th>
+								<th>
+									<select name="person2" id="person2">
+										<% neo4jData.forEach(name => { %>
+											<option value="<%=name %>""><%= name %></option>
+										<% }); %>
+									</select>
+								</th>
+							</tr>
+						</table>
+						<% checkRResp.forEach(val => { %>
+							<p><%= val%>
+						<% }); %><br>
+						<button id="addRelationship">Add</button>
+					</div>
+				</form>
+			</section>
+			<section>
+				<h2>Check relationship</h2>
+				<form action="/check" method="POST">
+					<div>
+						<table>
+							<tr>
+								<th>Who is </th>
+								<th>
+									<select name="person1" id="person1">
+										<% neo4jData.forEach(name => { %>
+											<option value="<%=name %>""><%= name %></option>
+										<% }); %>
+									</select>
+								</th>
+								<th>to</th>
+								<th>
+									<select name="person2" id="person2">
+										<% neo4jData.forEach(name => { %>
+											<option value="<%=name %>""><%= name %></option>
+										<% }); %>
+									</select>
+								</th>
+								<th>? </th>
+							</tr>
+						</table>
+						<% checkResp.forEach(val => { %>
+							<p><%= val%>
+						<% }); %>
+						<br>
+						<button id="checkRel">Check</button>
+					</div>
+				</form>
+			</section>
+		</main>
+		<script>
+		</script>
+	</body>
+</html>
