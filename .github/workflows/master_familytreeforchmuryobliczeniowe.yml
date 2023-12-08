@@ -59,4 +59,4 @@ jobs:
           app-name: 'FamilyTreeForChmuryObliczeniowe'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_23C6A10D359F4A07A1824D3E0A94E608 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E39FB930BBE64D73A8EAFE17B5E1078A }}
